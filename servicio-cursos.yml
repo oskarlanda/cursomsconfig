@@ -1,4 +1,6 @@
 eureka:
+  instance:
+    instance-id: cursos2
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
