@@ -14,6 +14,11 @@ spring:
     username: root
     password: MySQLServer8019.
   jpa:
+    database: mysql
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
     hibernate:
       naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
@@ -22,5 +27,3 @@ spring:
     jpa:
       repositories:
         enabled: true
-      show-sql: true
-      database: mysql
