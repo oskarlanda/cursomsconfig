@@ -1,0 +1,26 @@
+server:
+  port: 9007
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 192.168.1.63
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.1.63:8761/eureka
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.63:3306/cursofinal?serverTimezone=UTC	
+    username: root
+    password: MySQLServer8019.
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  data:
+    jpa:
+      repositories:
+        enabled: true
+      show-sql: true
+      database: mysql
