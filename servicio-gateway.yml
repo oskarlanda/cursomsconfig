@@ -24,7 +24,7 @@ cloud:
         predicates:
           - Path=/shoteles/**
         filters:
-          - RewritePath=/shotel/*, /
+          - RewritePath=/shoteles/*, /
       - id: serviciovuelos
         uri: lb://servicio-vuelos 
         predicates:
