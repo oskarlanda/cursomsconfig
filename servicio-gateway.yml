@@ -1,0 +1,39 @@
+server:
+  port: 9000
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 192.168.1.63
+  client:
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://192.168.1.63:8761/eureka
+cloud: 
+  gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+              allowedOrigins: "*"
+              allowedMethods: "*"
+              allowedHeaders: "*"   
+      routes:
+      - id: servicioHoteles 
+        uri: lb://servicio-hoteles
+        predicates:
+          - Path=/shoteles/**
+        filters:
+          - RewritePath=/shotel/*, /
+      - id: serviciovuelos
+        uri: lb://servicio-vuelos 
+        predicates:
+          - Path=/svuelos/**
+        filters:
+          - RewritePath=/svuelos/*, /      
+      - id: servicioreservas
+        uri: lb://servicio-reservas 
+        predicates:
+          - Path=/sreservas/**
+        filters:
+          - RewritePath=/sreservas/*, /      
