@@ -2,7 +2,6 @@ server:
   port: 9005
 eureka:
   instance:
-    instance-id: hoteles2
     prefer-ip-address: true
     ip-address: 192.168.1.63
   client:
